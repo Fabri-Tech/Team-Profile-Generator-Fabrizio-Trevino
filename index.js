@@ -9,7 +9,7 @@ const managerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your name?",
+            message: "What is your name?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -25,7 +25,7 @@ const managerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your enamil address?",
+            message: "What is your email address?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -41,13 +41,13 @@ const managerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your name?",
+            message: "What is your office number?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
                 }
                 else {
-                    console.log("Please enter your name");
+                    console.log("Please enter your office nummber");
                     return false;
 
                 }
@@ -57,7 +57,7 @@ const managerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your employee ID?",
+            message: "What is your employee ID?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -87,7 +87,7 @@ const engeneerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your name?",
+            message: "What is your name?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -103,7 +103,7 @@ const engeneerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your enamil address?",
+            message: "What is your email address?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -119,13 +119,13 @@ const engeneerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your name?",
+            message: "What is your GitHub username?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
                 }
                 else {
-                    console.log("Please enter your name");
+                    console.log("Please enter your GitHub username");
                     return false;
 
                 }
@@ -135,7 +135,7 @@ const engeneerGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your employee ID?",
+            message: "What is your employee ID?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -158,7 +158,7 @@ const internGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your name?",
+            message: "What is your name?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -174,7 +174,7 @@ const internGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your enamil address?",
+            message: "What is your email address?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
@@ -190,13 +190,13 @@ const internGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your name?",
+            message: "What is your school name?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
                 }
                 else {
-                    console.log("Please enter your name");
+                    console.log("Please enter your School name");
                     return false;
 
                 }
@@ -206,7 +206,7 @@ const internGen = () => {
         {
             type: "input",
             name: "name",
-            message: "what is your employee ID?",
+            message: "What is your employee ID?",
             Validate:(nameInput) => {
                 if(nameInput){
                     return true
