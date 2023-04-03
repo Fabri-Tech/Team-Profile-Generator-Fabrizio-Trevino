@@ -1,19 +1,19 @@
 class Employee {
-    #role = "Employee";
+    role = "Employee";
     
     constructor(name, id, email) {
-      this.#name = name;
-      this.#id = id;
-      this.#email = email;
+      this.name = name;
+      this.id = id;
+      this.email = email;
     }
   
-    getName = () => this.#name;
+    getName = () => this.name;
   
-    getId = () => this.#id;
+    getId = () => this.id;
   
-    getEmail = () => this.#email;
+    getEmail = () => this.email;
   
-    getRole = () => this.#role;
+    getRole = () => this.role;
   }
   
   module.exports = Employee;
