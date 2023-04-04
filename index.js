@@ -3,6 +3,7 @@ const fs = require('fs');
 const Manager = require('./Lib/manager.js');
 const Engineer = require('./Lib/engineer.js');
 const Intern = require('./Lib/intern.js');
+const HTMLCreator = require('./src/HTMLCreator.js');
 
 const teamGenArray = [];
 
@@ -199,41 +200,41 @@ const internGen = () => {
       teamGenArray.push(newIntern);
       addEmployee();
     });
-
-  managerGen();
-
-  function addEmployee() {
-    inquirer
-      .prompt([
-        {
-          type: 'list',
-          name: 'employeeType',
-          message: 'Do you want to add another team member?',
-          choices: ['Manager', 'Engineer', 'Intern', 'None'],
-        },
-      ])
-      .then((data) => {
-        switch (data.employeeType) {
-          case 'Manager':
-            generateManager();
-            break;
-          case 'Engineer':
-            generateEngineer();
-            break;
-          case 'Intern':
-            generateIntern();
-            break;
-          case 'None':
-            writeTeamHtmlToFile();
-            break;
-          default:
-            console.log('Invalid input');
-        }
-      });
-  }
 };
 
+managerGen();
+
+function addEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'employeeType',
+        message: 'Do you want to add another team member?',
+        choices: ['Manager', 'Engineer', 'Intern', 'None'],
+      },
+    ])
+    .then((data) => {
+      switch (data.employeeType) {
+        case 'Manager':
+          managerGen();
+          break;
+        case 'Engineer':
+          engineerGen();
+          break;
+        case 'Intern':
+          internGen();
+          break;
+        case 'None':
+          writeTeamHtmlToFile();
+          break;
+        default:
+          console.log('Invalid input');
+      }
+    });
+}
+
 function writeTeamHtmlToFile() {
-  const teamHtml = generateHtml(teamArray);
-  fs.writeFileSync('./public/team.html', teamHtml);
+  const teamHtml = HTMLCreator(teamGenArray);
+  fs.writeFileSync('./Public/team.html', teamHtml);
 }
