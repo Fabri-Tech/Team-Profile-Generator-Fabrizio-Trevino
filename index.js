@@ -3,11 +3,9 @@ const fs = require('fs');
 const Manager = require('./Lib/manager.js');
 const Engineer = require('./Lib/engineer.js');
 const Intern = require('./Lib/intern.js');
-const HTMLCreator = require('./src/HTMLCreator.js');
-
+const htmlCreator = require('./src/htmlCreator.js');
 const teamGenArray = [];
 
-// Manager questions
 const managerGen = () => {
   return inquirer
     .prompt([
@@ -68,6 +66,7 @@ const managerGen = () => {
       const { name, id, email, officeNumber } = managerAnswers;
       const newManager = new Manager(name, id, email, officeNumber);
       teamGenArray.push(newManager);
+      console.log(newManager);
       addEmployee();
     });
 };
@@ -93,8 +92,8 @@ const engineerGen = () => {
         type: 'input',
         name: 'id',
         message: "What is the engineer's employee ID?",
-        validate: (idInput) => {
-          if (idInput) {
+        validate: (nameInput) => {
+          if (nameInput) {
             return true;
           } else {
             console.log('Please enter the engineer employee ID');
@@ -119,8 +118,8 @@ const engineerGen = () => {
         type: 'input',
         name: 'github',
         message: "What is the engineer's GitHub username?",
-        validate: (githubInput) => {
-          if (githubInput) {
+        validate: (nameInput) => {
+          if (nameInput) {
             return true;
           } else {
             console.log('Please enter the engineer GitHub username');
@@ -130,7 +129,7 @@ const engineerGen = () => {
       },
     ])
     .then((engineerAnswers) => {
-      const { name, id, email, officeNumber } = engineerAnswers;
+      const { name, id, email, github } = engineerAnswers;
       const newEngineer = new Engineer(name, id, email, github);
       teamGenArray.push(newEngineer);
       addEmployee();
@@ -226,15 +225,13 @@ function addEmployee() {
           internGen();
           break;
         case 'None':
-          writeTeamHtmlToFile();
+          fs.writeFileSync(
+            './Public/teamProfile.html',
+            htmlCreator(teamGenArray)
+          );
           break;
         default:
           console.log('Invalid input');
       }
     });
-}
-
-function writeTeamHtmlToFile() {
-  const teamHtml = HTMLCreator(teamGenArray);
-  fs.writeFileSync('./Public/team.html', teamHtml);
 }
