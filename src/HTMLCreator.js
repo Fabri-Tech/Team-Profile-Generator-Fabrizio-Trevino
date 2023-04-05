@@ -6,51 +6,51 @@ function htmlCreator(teamGenArray) {
       <div class="card">
         <div class="card-header">
           <h2>Manager</h2>
-          <h3>Name: ${employee.getName}</h3>
+          <h3>Name: ${employee.getName()}</h3>
         </div>
         <div class="card-body">
           <ul>
-            <li>ID: ${employee.getId}</li>
-            <li>Email: ${employee.getEmail}</li>
+            <li>ID: ${employee.getId()}</li>
+            <li>Email: ${employee.getEmail()}</li>
             <li>Office Number: ${employee.getOfficeNumber}</li>
           </ul>
         </div>
       </div>`;
   }
 
-  // function callEngineer(newEngineer) {
-  //   return `
-  //     <div class="card">
-  //       <div class="card-header">
-  //         <h2>Engineer</h2>
-  //         <h3>Name: ${newEngineer.getName}</h3>
-  //       </div>
-  //       <div class="card-body">
-  //         <ul>
-  //           <li>ID: ${newEngineer.getId}</li>
-  //           <li>Email: ${newEngineer.getEmail}</li>
-  //           <li>GitHub username: ${newEngineer.getGithub}</li>
-  //         </ul>
-  //       </div>
-  //     </div>`;
-  // }
+  function callEngineer(newEngineer) {
+    return `
+      <div class="card">
+        <div class="card-header">
+          <h2>Engineer</h2>
+          <h3>Name: ${newEngineer.getName}</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>ID: ${newEngineer.getId}</li>
+            <li>Email: ${newEngineer.getEmail}</li>
+            <li>GitHub username: ${newEngineer.getGithub}</li>
+          </ul>
+        </div>
+      </div>`;
+  }
 
-  // function callIntern(newIntern) {
-  //   return `
-  //     <div class="card">
-  //       <div class="card-header">
-  //         <h2>Intern</h2>
-  //         <h3>Name: ${newIntern.getName}</h3>
-  //       </div>
-  //       <div class="card-body">
-  //         <ul>
-  //           <li>ID: ${newIntern.ID}</li>
-  //           <li>Email: ${newIntern.email}</li>
-  //           <li>School Name: ${newIntern.schoolName}</li>
-  //         </ul>
-  //       </div>
-  //     </div>`;
-  // }
+  function callIntern(newIntern) {
+    return `
+      <div class="card">
+        <div class="card-header">
+          <h2>Intern</h2>
+          <h3>Name: ${newIntern.getName}</h3>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li>ID: ${newIntern.ID}</li>
+            <li>Email: ${newIntern.email}</li>
+            <li>School Name: ${newIntern.schoolName}</li>
+          </ul>
+        </div>
+      </div>`;
+  }
 
   teamGenArray.forEach(function (employee) {
     if (employee.getRole() === 'Manager') {
