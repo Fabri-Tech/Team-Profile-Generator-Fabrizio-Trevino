@@ -2,10 +2,13 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./Lib/manager.js');
 const Engineer = require('./Lib/engineer.js');
-const Intern = require('./Lib/intern.js');
+const intern = require('./Lib/intern.js');
 const htmlCreator = require('./src/htmlCreator.js');
 const teamGenArray = [];
 
+// Below you will find all the questions that we will ask for the employees
+
+// These are the manager questions
 const managerGen = () => {
   return inquirer
     .prompt([
@@ -143,60 +146,61 @@ const internGen = () => {
       {
         type: 'input',
         name: 'name',
-        message: 'What is your name?',
+        message: "What is the team's intern name?",
         validate: (nameInput) => {
           if (nameInput) {
             return true;
           } else {
-            console.log('Please enter your name');
+            console.log('Please enter the team intern name');
             return false;
           }
         },
       },
       {
         type: 'input',
-        name: 'name',
-        message: 'What is your email address?',
-        validate: (nameInput) => {
-          if (nameInput) {
+        name: 'id',
+        message: "What is the team intern's employee ID?",
+        validate: (idInput) => {
+          if (idInput) {
             return true;
           } else {
-            console.log('Please enter your email address');
+            console.log('Please enter the team intern employee ID');
             return false;
           }
         },
       },
       {
         type: 'input',
-        name: 'name',
-        message: 'What is your school name?',
-        validate: (nameInput) => {
-          if (nameInput) {
+        name: 'email',
+        message: "What is the team intern's email address?",
+        validate: (emailInput) => {
+          if (emailInput) {
             return true;
           } else {
-            console.log('Please enter your School name');
+            console.log('Please enter the team intern email address');
             return false;
           }
         },
       },
       {
         type: 'input',
-        name: 'name',
-        message: 'What is your employee ID?',
-        validate: (nameInput) => {
-          if (nameInput) {
+        name: 'schoolName',
+        message: "What is the team intern's office number?",
+        validate: (schoolNameInput) => {
+          if (schoolNameInput) {
             return true;
           } else {
-            console.log('Please enter your employee ID');
+            console.log('Please enter the team intern office number');
             return false;
           }
         },
       },
     ])
     .then((internAnswers) => {
-      const { name, id, email, school } = internAnswers;
-      const newIntern = new Intern(name, id, email, school);
-      teamGenArray.push(newIntern);
+      const { name, id, email, schoolName } = internAnswers;
+      const newintern = new intern(name, id, email, schoolName);
+      teamGenArray.push(newintern);
+      console.log(newintern);
       addEmployee();
     });
 };
@@ -210,7 +214,7 @@ function addEmployee() {
         type: 'list',
         name: 'employeeType',
         message: 'Do you want to add another team member?',
-        choices: ['Manager', 'Engineer', 'Intern', 'None'],
+        choices: ['Manager', 'Engineer', 'intern', 'None'],
       },
     ])
     .then((data) => {
@@ -221,7 +225,7 @@ function addEmployee() {
         case 'Engineer':
           engineerGen();
           break;
-        case 'Intern':
+        case 'intern':
           internGen();
           break;
         case 'None':
