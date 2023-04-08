@@ -185,12 +185,12 @@ const internGen = () => {
       {
         type: 'input',
         name: 'schoolName',
-        message: "What is the team intern's office number?",
+        message: "What is the intern's school name?",
         validate: (schoolNameInput) => {
           if (schoolNameInput) {
             return true;
           } else {
-            console.log('Please enter the team intern office number');
+            console.log('Please enter the team intern shcool name');
             return false;
           }
         },
