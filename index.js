@@ -1,10 +1,10 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const Manager = require('./Lib/manager.js');
-const Engineer = require('./Lib/engineer.js');
-const intern = require('./Lib/intern.js');
-const htmlCreator = require('./src/htmlCreator.js');
-const teamGenArray = [];
+const inquirer = require('inquirer'); //this package is used to prompt the user with questions and receive their input
+const fs = require('fs'); //This package is used to write the generated HTML file
+const Manager = require('./Lib/manager.js'); //This is a class that is defined in its respective files
+const Engineer = require('./Lib/engineer.js'); //This is a class that is defined in its respective files
+const intern = require('./Lib/intern.js'); //This is a class that is defined in its respective files
+const htmlCreator = require('./src/htmlCreator.js'); //This will be used to create the HTML with the team roaster
+const teamGenArray = []; //This is an empty array that will be used to store the generated employee objects.
 
 // Below you will find all the questions that we will ask for the employees
 
@@ -208,6 +208,7 @@ const internGen = () => {
 managerGen();
 
 function addEmployee() {
+  //is called to prompt the user whether to add another employee or to exit the application
   inquirer
     .prompt([
       {
